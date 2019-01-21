@@ -53,8 +53,8 @@ class IterableBox {
 		const { queue } = this
 		while (true) {
 			await this.semaphore.wait()
-            let value = queue.pop()
-            console.log(value)
+            let value = queue.shift()
+            // console.log(value)
 			yield value
 		}
 	}

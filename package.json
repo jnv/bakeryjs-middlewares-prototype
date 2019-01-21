@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@types/node": "^10.12.18",
-    "await-semaphore": "^0.1.3",
     "koa-compose": "^4.1.0",
     "semaphore-async-await": "^1.5.1"
   }
