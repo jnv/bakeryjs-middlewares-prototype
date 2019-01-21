@@ -55,9 +55,6 @@ class IterableBox {
 			await this.semaphore.wait()
             let value = queue.pop()
             console.log(value)
-			if (queue.length === 0 && this.done) {
-				return value
-			}
 			yield value
 		}
 	}
@@ -77,7 +74,11 @@ class Program {
             iterable.process(data)
             return iterable
         }])
-		await mw({})
+		const iterator = await mw({})
+        console.log(iterator)
+        for await (const message of iterator) {
+            console.log('after middlewares', message)
+        }
 	}
 }
 
