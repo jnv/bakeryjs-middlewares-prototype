@@ -55,6 +55,9 @@ class IterableBox {
 			await this.semaphore.wait()
             let value = queue.shift()
             // console.log(value)
+            if (!queue.length && this.done) {
+                return value
+            }
 			yield value
 		}
 	}
